@@ -4,17 +4,17 @@ RobotWebServer::RobotWebServer(MotorController* motorController, int port)
   : _server(port), _motorController(motorController) {
 }
 
-void RobotWebServer::initAccessPoint(const char* ssid, const char* password) {
+void RobotWebServer::initAccessPoint(const char* ssid, const char* password, int channel, int maxConnections) {
   // Configurar IP fija para el punto de acceso
-  IPAddress local_IP(192, 168, 0, 1);
-  IPAddress gateway(192, 168, 0, 1);
+  IPAddress local_IP(192, 168, 1, 1);
+  IPAddress gateway(192, 168, 1, 1);
   IPAddress subnet(255, 255, 255, 0);
 
   // Configurar el AP con IP fija
   WiFi.softAPConfig(local_IP, gateway, subnet);
   
   // Iniciar el modo AP
-  bool result = WiFi.softAP(ssid, password);
+  bool result = WiFi.softAP(ssid, password, channel, false, maxConnections);
   
   if (result) {
     Serial.println("Punto de acceso WiFi iniciado correctamente");

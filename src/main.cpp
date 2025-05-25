@@ -35,7 +35,7 @@ void setup() {
   Serial.println("Controlador de motores inicializado");
   
   // Inicializar servidor web como punto de acceso
-  webServer.initAccessPoint(WIFI_SSID, WIFI_PASSWORD);
+  webServer.initAccessPoint(WIFI_SSID, WIFI_PASSWORD, 6, 1);
   
   Serial.println("Sistema iniciado correctamente");
   Serial.println("Para controlar el robot, conectate a la red WiFi:");
@@ -43,7 +43,7 @@ void setup() {
   Serial.println(WIFI_SSID);
   Serial.print("Contraseña: ");
   Serial.println(WIFI_PASSWORD);
-  Serial.println("Y accede a http://192.168.0.1 en tu navegador");
+  Serial.println("Y accede a http://192.168.1.1 en tu navegador");
 }
 
 void loop() {
