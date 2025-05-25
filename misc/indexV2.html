@@ -97,6 +97,8 @@
   .wifi-info h3 {
     margin-top: 0;
     text-align: center;
+    font-weight: 700;
+    color: #555;
   }
 
   .div1 {
@@ -154,7 +156,9 @@
   }
 
   .slider-container {
-    margin-top: 20px
+    font-weight: 700;
+    margin-top: 20px;
+    color: #555;
   }
 
   #speed-slider {
@@ -163,6 +167,12 @@
 
   #status {
     margin-top: 20px;
+    font-weight: 700;
+    color: #555
+  }
+
+  #wifi-status {
+    margin-top: 10px;
     font-weight: 700;
     color: #555
   }
@@ -208,6 +218,18 @@
 </main>
 <script>
   // Agregar eventos táctiles a todos los botones:
+  document
+    .getElementById("forward-btn")
+    .addEventListener("touchstart", function (e) {
+      e.preventDefault();
+      sendCommand("/forward");
+    });
+  document
+    .getElementById("forward-btn")
+    .addEventListener("touchend", function (e) {
+      e.preventDefault();
+      sendCommand("/stop");
+    });
   document
     .getElementById("backward-btn")
     .addEventListener("touchstart", function (e) {
