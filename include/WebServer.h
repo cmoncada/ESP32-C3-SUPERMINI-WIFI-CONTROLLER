@@ -18,6 +18,7 @@ class RobotWebServer {
     
     void setupRoutes();
     String getHtmlPage();
+    String getWifiInfo();
 };
 
 #endif
