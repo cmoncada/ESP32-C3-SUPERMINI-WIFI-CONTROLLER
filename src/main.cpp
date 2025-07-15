@@ -4,21 +4,21 @@
 
 // Si no se definen en platformio.ini, usar valores predeterminados
 #ifndef WIFI_SSID
-  #define WIFI_SSID "RobotESP32"
+  #define WIFI_SSID "ArkytasBot"
 #endif
 
 #ifndef WIFI_PASSWORD
-  #define WIFI_PASSWORD "robot123"
+  #define WIFI_PASSWORD "12345678"
 #endif
 
 // Configuración de pines L298N (sin ENA/ENB)
 // Motor A
-const int IN1 = 0;  // GPIO5
-const int IN2 = 1;  // GPIO6
+const int IN1 = 0;  // GPIO0
+const int IN2 = 1;  // GPIO1
 
 // Motor B
-const int IN3 = 2;  // GPIO8
-const int IN4 = 3;  // GPIO9
+const int IN3 = 2;  // GPIO2
+const int IN4 = 3;  // GPIO3
 
 // Inicializar objetos
 MotorController motorController(IN1, IN2, IN3, IN4);
