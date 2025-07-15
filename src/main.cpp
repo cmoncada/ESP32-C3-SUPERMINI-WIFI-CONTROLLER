@@ -13,12 +13,12 @@
 
 // Configuración de pines L298N (sin ENA/ENB)
 // Motor A
-const int IN1 = 5;  // GPIO5
-const int IN2 = 6;  // GPIO6
+const int IN1 = 0;  // GPIO5
+const int IN2 = 1;  // GPIO6
 
 // Motor B
-const int IN3 = 8;  // GPIO8
-const int IN4 = 9;  // GPIO9
+const int IN3 = 2;  // GPIO8
+const int IN4 = 3;  // GPIO9
 
 // Inicializar objetos
 MotorController motorController(IN1, IN2, IN3, IN4);
@@ -36,7 +36,8 @@ void setup() {
   
   // Inicializar servidor web como punto de acceso
   webServer.initAccessPoint(WIFI_SSID, WIFI_PASSWORD, 6, 1);
-  
+
+  delay(5000);
   Serial.println("Sistema iniciado correctamente");
   Serial.println("Para controlar el robot, conectate a la red WiFi:");
   Serial.print("SSID: ");
