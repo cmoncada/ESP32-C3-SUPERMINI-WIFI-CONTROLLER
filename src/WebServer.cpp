@@ -84,11 +84,6 @@ void RobotWebServer::setupRoutes()
     _motorController->stop();
     request->send(200, "text/plain", "Detenido"); });
 
-  _server.on("/wifi-info", HTTP_GET, [this](AsyncWebServerRequest *request)
-             {
-  String wifiInfo = getWifiInfo();
-  request->send(200, "application/json", wifiInfo); });
-
   // Ruta para ajustar velocidad
   _server.on("/speed", HTTP_GET, [this](AsyncWebServerRequest *request)
              {
@@ -201,7 +196,7 @@ String RobotWebServer::getHtmlPage()
   }
   // Actualizar la información cada 5 segundos
   updateWifiInfo();
-  setInterval(updateWifiInfo, 5000);</script>)rawliteral";
+  setInterval(updateWifiInfo, 15000);</script>)rawliteral";
 
   return html;
 }

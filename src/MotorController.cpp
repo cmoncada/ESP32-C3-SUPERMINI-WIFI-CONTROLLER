@@ -41,7 +41,6 @@ void MotorController::applyMovement() {
       analogWrite(_in2, 0);
       analogWrite(_in3, pwmValue);
       analogWrite(_in4, 0);
-      Serial.println("Avanzando");
       break;
       
     case BACKWARD:
@@ -49,14 +48,12 @@ void MotorController::applyMovement() {
       analogWrite(_in2, pwmValue);
       analogWrite(_in3, 0);
       analogWrite(_in4, pwmValue);
-      Serial.println("Reversa");
       break;
       
     case LEFT:
       analogWrite(_in1, 0);
       analogWrite(_in2, pwmValue);
       analogWrite(_in3, pwmValue);
-      Serial.println("Izquierda");
       analogWrite(_in4, 0);
       break;
       
@@ -65,7 +62,6 @@ void MotorController::applyMovement() {
       analogWrite(_in2, 0);
       analogWrite(_in3, 0);
       analogWrite(_in4, pwmValue);
-      Serial.println("Derecha");
       break;
       
     default:
@@ -77,21 +73,25 @@ void MotorController::applyMovement() {
 
 void MotorController::forward() {
   _currentDirection = FORWARD;
+  Serial.println("FORWARD");
   applyMovement();
 }
 
 void MotorController::backward() {
   _currentDirection = BACKWARD;
+  Serial.println("BACKWARD");
   applyMovement();
 }
 
 void MotorController::turnLeft() {
   _currentDirection = LEFT;
+  Serial.println("LEFT");
   applyMovement();
 }
 
 void MotorController::turnRight() {
   _currentDirection = RIGHT;
+  Serial.println("RIGHT");
   applyMovement();
 }
 
@@ -101,6 +101,7 @@ void MotorController::stop() {
   analogWrite(_in2, 0);
   analogWrite(_in3, 0);
   analogWrite(_in4, 0);
+  Serial.println("STOP");
 }
 
 void MotorController::setSpeed(int speed) {
